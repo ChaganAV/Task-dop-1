@@ -1,6 +1,8 @@
 ﻿string inputUser = String.Empty;
 int countTrial = 1;
 int maxTrial = 3;
+string userName = String.Empty;
+string userPassword = String.Empty;
 
 Console.WriteLine("Введите help для вывода списка доступных команд");
 inputUser = ReadString(">> ");
