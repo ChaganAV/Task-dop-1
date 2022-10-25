@@ -1,12 +1,15 @@
 ﻿string inputUser = String.Empty;
-int countTrial = 1;
-int maxTrial = 3;
+//int countTrial = 1;
+//int maxTrial = 3;
 string userName = String.Empty;
 string userPassword = String.Empty;
 
 Console.WriteLine("Введите help для вывода списка доступных команд");
-inputUser = ReadString(">> ");
-DetectionCommand(inputUser);
+while(inputUser != "exit")
+{
+    inputUser = ReadString(">> ");
+    DetectionCommand(inputUser);
+}
 
 
 // Функции
@@ -51,13 +54,13 @@ void SelectListCommand()
 }
 void SetName(string name)
 {
-
+    userName = ReadString("Введите имя: ");
 }
 void SetPassword(string password)
 {
-
+    userPassword = ReadString("Введите пароль: ");
 }
 void WriteName()
 {
-
+    Console.WriteLine($"Ваше имя {userName}");
 }
