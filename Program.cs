@@ -41,6 +41,18 @@ void SelectListCommand()
     Console.WriteLine("help - вывести список команд");
     Console.WriteLine("setName - установить имя");
     Console.WriteLine("setPassword - установить пароль");
-    Console.WriteLine("exit - выход из программы");
     Console.WriteLine("writeName - вывести имя после ввода пароля");
+    Console.WriteLine("exit - выход из программы");
+}
+void SetName(string name)
+{
+
+}
+void SetPassword(string password)
+{
+
+}
+void WriteName()
+{
+
 }
