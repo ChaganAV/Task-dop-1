@@ -2,17 +2,23 @@
 // В переменной string есть секретное сообщение
 // во второй есть пароль
 // Пользователю дается 3 попытки ввести пароль и увидеть секретное сообщение
+// ****
+// Добавим команды SetName - установить имя,
+// Help - вывести список команд,
+// SetPassword - установить пароль,
+// Exit - выход из программы,
+// WriteName - вывести имя после ввода пароля
 string secret = "Вы угадали пароль, возьмите с полки пряник!";
 string pass = "123";
-string test = String.Empty;
+string inputUser = String.Empty;
 int count = 1;
 int max = 3;
 
 Console.WriteLine("Отгадайте пароль с 3 раз");
 while (count <= max)
 {
-    test = ReadString(count.ToString());
-    if (test == pass)
+    inputUser = ReadString(count.ToString());
+    if (inputUser == pass)
     {
         Console.WriteLine(secret);
         break;
@@ -28,6 +34,6 @@ while (count <= max)
 string ReadString(string message)
 {
     Console.WriteLine($"Попытка {message}");
-    string? input = Console.ReadLine();
-    return input ?? "null";
+    string? inputUser = Console.ReadLine();
+    return inputUser ?? "null";
 }
