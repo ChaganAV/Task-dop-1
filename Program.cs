@@ -3,14 +3,14 @@ int countTrial = 1;
 int maxTrial = 3;
 
 Console.WriteLine("Введите help для вывода списка доступных команд");
-inputUser = ReadString(countTrial.ToString());
+inputUser = ReadString(">> ");
 DetectionCommand(inputUser);
 
 
 // Функции
 string ReadString(string message)
 {
-    Console.WriteLine($"{message}");
+    Console.Write($"{message}");
     string? inputUser = Console.ReadLine();
     return inputUser ?? "null";
 }
@@ -23,13 +23,16 @@ void DetectionCommand(string strName)
             SelectListCommand();
             break;
         case "setName":
+            SetName(strName);
             break;
         case "setPassword":
-            break;
-        case "exit":
+            SetPassword(strName);
             break;
         case "writeName":
+            WriteName();
             break;
+        case "exit":
+            return;
         default:
             Console.WriteLine($"Команды {strName} нет!");
             break;
