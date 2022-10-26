@@ -46,11 +46,11 @@ void DetectionCommand(string strName)
 
 void SelectListCommand()
 {
-    Console.WriteLine("help (-h) - вывести список команд");
-    Console.WriteLine("setName (-sn) - установить имя");
-    Console.WriteLine("setPassword (-sp) - установить пароль");
-    Console.WriteLine("writeName (-wn) - вывести имя после ввода пароля");
-    Console.WriteLine("exit (q) - выход из программы");
+    Console.WriteLine("help - вывести список команд");
+    Console.WriteLine("setName - установить имя");
+    Console.WriteLine("setPassword - установить пароль");
+    Console.WriteLine("writeName - вывести имя после ввода пароля");
+    Console.WriteLine("exit - выход из программы");
 }
 void SetName(string name)
 {
@@ -75,7 +75,6 @@ void WriteName()
         if (password != userPassword && i == 2)
         {
             Console.WriteLine("К сожалению пароль не верный!");
-            return;
         }
     }
 }
