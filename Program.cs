@@ -2,6 +2,7 @@
 
 string userName = String.Empty;
 string userPassword = String.Empty;
+int countTestPass = 3;
 
 
 Console.WriteLine("Введите help для вывода списка доступных команд");
@@ -28,16 +29,16 @@ void DetectionCommand(string strName)
             SelectListCommand();
             break;
         case "setName":
-            SetName(strName);
+            SetName();
             break;
         case "setPassword":
-            SetPassword(strName);
+            SetPassword();
             break;
         case "writeName":
             WriteName();
             break;
         case "exit":
-            return;
+            break;
         default:
             Console.WriteLine($"Команды {strName} нет!");
             break;
@@ -52,18 +53,36 @@ void SelectListCommand()
     Console.WriteLine("writeName - вывести имя после ввода пароля");
     Console.WriteLine("exit - выход из программы");
 }
-void SetName(string name)
+void SetName()
 {
     userName = ReadString("Введите имя: ");
+    if (userName is null || userName.Length < 1)
+    {
+        userName = ReadString("Вы не ввели имя, попробуйте еще раз: ");
+    }
 }
-void SetPassword(string password)
+void SetPassword()
 {
     userPassword = ReadString("Введите пароль: ");
+    if (userPassword is null || userPassword.Length<1)
+    {
+        userPassword = ReadString("Вы не ввели пароль, попробуйте еще раз: ");
+    }
 }
 void WriteName()
 {
+    if (userName is null || userName.Length < 1)
+    {
+        Console.WriteLine("Вы не ввели имя!");
+        return;
+    }
+    if (userPassword is null || userPassword.Length < 1)
+    {
+        Console.WriteLine("Вы не ввели пароль!");
+        return;
+    }
     string password = ReadString("Введите пароль:");
-    for(int i = 0; i < 3; i++)
+    for(int i = 0; i < countTestPass; i++)
     {
         if (password == userPassword)
         {
@@ -72,7 +91,7 @@ void WriteName()
         }
         else
             password = ReadString("Пароль не верный, попробуйте еще раз: ");
-        if (password != userPassword && i == 2)
+        if (password != userPassword && i == countTestPass-1)
         {
             Console.WriteLine("К сожалению пароль не верный!");
         }
